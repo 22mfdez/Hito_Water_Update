@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestor Magic Water</title>
+</head>
+<body>
+<h1>INICIA TU FOKIN SESION</h1>
+<h2 th:if="${!(user==null)}" th:text="'Bienvenido, ' + ${username}">Bienvenido, </h2>
+<h2 th:if="${!(user==null) && user.getPermiso().equals('trabajador')}">Iniciando sesión como Trabajador</h2>
+<h2 th:if="${!(user==null) && user.getPermiso().equals('supervisor')}">Iniciando sesión como Supervisor</h2>
+
+<a th:if="${!(user==null) && user.getPermiso().equals('supervisor')}" href="/tarea">Ver todas las tareas</a>
+<a th:if="${user==null}" th:href="@{/login}">Iniciar sesión</a>
+<a th:if="${!(user==null) && user.getPermiso().equals('trabajador')}" th:href="@{/tarea}">Administrar mis tareas</a>
+<a th:if="${!(user==null) && user.getPermiso().equals('trabajador')}" th:href="@{/creartarea}">Crear nueva tarea</a>
+<a th:if="${!(user==null) && user.getPermiso().equals('trabajador')}" th:href="@{/crearproyecto}">Crear proyecto</a>
+<a th:if="${!(user==null)}" th:href="@{/logout}">Cerrar sesión</a>
+</body>
+</html>

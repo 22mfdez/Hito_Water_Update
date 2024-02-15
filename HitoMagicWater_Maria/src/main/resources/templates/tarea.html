@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tarea Page</title>
+</head>
+<body>
+<h1>Your Tasks</h1>
+<table>
+    <tr>
+        <th>Description</th>
+    </tr>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.descripcion}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trabajador Page</title>
+</head>
+<body>
+<h1>Welcome, Trabajador!</h1>
+<table>
+    <tr>
+        <th>Description</th>
+        <th>Start Expected</th>
+        <th>End Expected</th>
+        <th>Start Real</th>
+        <th>End Real</th>
+    </tr>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.descripcion}"></td>
+        <td th:text="${task.inicioPrevisto}"></td>
+        <td th:text="${task.finPrevisto}"></td>
+        <td th:text="${task.inicioReal}"></td>
+        <td th:text="${task.finReal}"></td>
+
+    </tr>
+</table>
+<a th:if="${!(user==null)}" th:href="@{/logout}">Cerrar sesión</a>
+</body>
+</html>
