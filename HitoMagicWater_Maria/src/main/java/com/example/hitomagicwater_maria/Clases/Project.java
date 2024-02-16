@@ -11,7 +11,7 @@ import java.util.List;
 public class Project {
     @Id
 
-    private Long id_proyecto;
+    private Long idproyecto;
     private String nombre;
     private String descripcion;
     private String zona;

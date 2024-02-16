@@ -7,9 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface RepositorioTarea extends JpaRepository<Task, String> {
-     @Query ("SELECT t FROM Task t WHERE t.user = ?1")
      List<Task> findByUser(User login);
 }

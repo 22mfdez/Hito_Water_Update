@@ -11,7 +11,7 @@ import lombok.Data;
 @Table(name = "usuario")
 public class User {
     @Id
-    private String pfNik;
+    private String pf_nik;
     private String password;
     private boolean activo;
     private String permiso;
@@ -24,12 +24,11 @@ public class User {
     public User() {
     }
 
-    // getters and setters
 
     @Override
     public String toString() {
         return "User{" +
-                "pfNik='" + pfNik + '\'' +
+                "pf_nik='" + pf_nik + '\'' +
                 ", password='" + password + '\'' +
                 ", activo=" + activo +
                 ", permiso='" + permiso + '\'' +

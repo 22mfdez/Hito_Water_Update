@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Table(name = "tarea")
 public class Task {
     @Id
-    private Long id_tarea;
+    private Long idtarea;
     private String descripcion;
     private LocalDate inicioprevisto;
     private LocalDate finprevisto;
@@ -18,10 +18,10 @@ public class Task {
     private LocalDate finreal;
     private String estado;
     @ManyToOne
-    @JoinColumn(name = "pfNik") // foreign key
+    @JoinColumn(name = "pf_nik") // foreign key
     private User user;
     @ManyToOne
-    @JoinColumn(name = "id_proyecto")
+    @JoinColumn(name = "idproyecto") // foreign key
     private Project project;
    ;
     // getters and setters

@@ -2,16 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Tarea Page</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <h1>Your Tasks</h1>
-<table>
+<a href="/" class="btn btn-primary">Back to Index</a>
+<!-- Add a Bootstrap table -->
+<table class="table table-striped">
+    <thead>
     <tr>
+        <th>Name</th>
+        <th>NIF</th>
+        <th>Project Name</th>
         <th>Description</th>
+        <th>Status</th>
     </tr>
+    </thead>
+    <tbody>
     <tr th:each="task : ${tasks}">
+        <td th:text="${task.getUser().nombre}"></td>
+        <td th:text="${task.getUser().pf_nik}"></td>
+        <td th:text="${task.getProject().nombre}"></td>
         <td th:text="${task.descripcion}"></td>
+        <td th:text="${task.estado}"></td> <!-- Display the task status -->
+        <td th:text="${task.idtarea}"></td>
+
+        <td>
+            <a th:href="@{/editarTarea/{nif}/{idtarea}(nif=${task.user.pf_nik}, idtarea=${task.idtarea})}" class="btn btn-info">Edit</a> <!-- Add an Edit button -->
+            <a th:href="@{/eliminarTarea(id=${task.idtarea})}" class="btn btn-danger">Delete</a> <!-- Add a Delete button -->
+        </td>
     </tr>
+    </tbody>
 </table>
 </body>
 </html>
